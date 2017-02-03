@@ -1,0 +1,11 @@
+version: '2'
+services:
+  minio:
+    image: minio/minio:latest
+    stdin_open: true
+    tty: true
+    command:
+    - "server /export"
+    labels:
+      io.rancher.container.pull_image: always
+
