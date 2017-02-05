@@ -3,9 +3,13 @@ services:
   minio:
     image: minio/minio:latest
     stdin_open: true
+    volumes:
+    - /export
     tty: true
+    ports:
+    - 9000:9000/tcp
     command:
-    - "server /export"
+    - server
+    - /export
     labels:
       io.rancher.container.pull_image: always
-
